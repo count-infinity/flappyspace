@@ -26,8 +26,7 @@ func get_polygon_width(polygon2D_node):
         min_x = min(min_x, vertex.x)
         max_x = max(max_x, vertex.x)
 
-    var width = max_x - min_x
-    print(width)
+    var width = max_x - min_x    
     return width
     
 func get_polygon_height(polygon2D_node):

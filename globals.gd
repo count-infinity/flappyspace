@@ -8,9 +8,8 @@ func _ready():
     load_high_score()
 
 func save():
-    print("In save")
-    if score > high_score:
-        print("Saving")
+    
+    if score > high_score:        
         var save_game = FileAccess.open("user://high_score.save", FileAccess.WRITE)
         save_game.store_32(score)
 
@@ -18,6 +17,5 @@ func load_high_score():
     var file = FileAccess.open("user://high_score.save", FileAccess.READ)
     if not file: return
         
-    var saved_score = file.get_32()
-    print("Setting high score "+str(saved_score))
+    var saved_score = file.get_32()    
     high_score = saved_score

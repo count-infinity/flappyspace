@@ -14,6 +14,7 @@ offset_right = 1154.0
 offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 415.0
 offset_top = 224.0
 offset_right = 782.0
