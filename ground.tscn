@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdvrtphfrrcb6"]
+
+[ext_resource type="Script" path="res://ground.gd" id="1_2mnhy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ks0c0"]
+size = Vector2(1160, 20)
+
+[node name="ground" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_2mnhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(580, 10)
+shape = SubResource("RectangleShape2D_ks0c0")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 1160, 0, 1160, 20, 0, 20)

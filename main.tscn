@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://rwn54xa4m4kf"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_gfecw"]
+[ext_resource type="Script" path="res://Player.gd" id="2_qbm3x"]
+[ext_resource type="Script" path="res://score_label.gd" id="4_dxxye"]
+[ext_resource type="Script" path="res://pipes.gd" id="4_hjxt6"]
+[ext_resource type="AudioStream" uid="uid://d2dgnjq04cw7a" path="res://zapsplat_multimedia_beep_electronic_high_tech_very_high_pitched_ui_87497.mp3" id="5_8fq1a"]
+[ext_resource type="AudioStream" uid="uid://ubgkts5ipbjl" path="res://music_zapsplat_astro_race.mp3" id="5_d54sl"]
+[ext_resource type="Script" path="res://last_score_label.gd" id="6_rtb4x"]
+[ext_resource type="Script" path="res://high_score_label.gd" id="7_c1w3e"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_gfecw")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_qbm3x")
+SPEED = 150.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Player"]
+polygon = PackedVector2Array(18, 13, 18, 25, 33, 19)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+polygon = PackedVector2Array(18, 13, 33, 19, 18, 25)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_top = 0
+limit_bottom = 648
+position_smoothing_enabled = true
+
+[node name="pipes" type="Node" parent="."]
+script = ExtResource("4_hjxt6")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="score_label" type="RichTextLabel" parent="HUD"]
+offset_left = 1028.0
+offset_top = 8.0
+offset_right = 1146.0
+offset_bottom = 32.0
+text = "Score: 0"
+script = ExtResource("4_dxxye")
+
+[node name="beep" type="AudioStreamPlayer" parent="HUD/score_label"]
+stream = ExtResource("5_8fq1a")
+
+[node name="last_score_label" type="Label" parent="HUD"]
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 106.0
+offset_bottom = 35.0
+text = "Last score: 0"
+script = ExtResource("6_rtb4x")
+
+[node name="high_score_label" type="Label" parent="HUD"]
+offset_left = 542.0
+offset_top = 11.0
+offset_right = 666.0
+offset_bottom = 37.0
+text = "Highest Score: 0"
+script = ExtResource("7_c1w3e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_d54sl")
+autoplay = true

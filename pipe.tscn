@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://oh5ilfmmq67e"]
+
+[ext_resource type="Script" path="res://pipe.gd" id="1_4swgh"]
+
+[node name="pipe" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_4swgh")
+
+[node name="tail" type="Polygon2D" parent="."]
+position = Vector2(-6, -4)
+color = Color(0, 0.388235, 0, 1)
+offset = Vector2(9.53674e-07, 4.76837e-07)
+texture_scale = Vector2(0, 0)
+polygon = PackedVector2Array(0, 0, 12, 0, 12, 9, 0, 9)
+
+[node name="entrance" type="Polygon2D" parent="."]
+position = Vector2(-6, -4)
+color = Color(0, 0.386719, 0, 1)
+polygon = PackedVector2Array(-2, 8, 14, 8, 14, 11, -2, 11)
+
+[node name="tail_collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6, -4)
+polygon = PackedVector2Array(0, 0, 12, 0, 12, 9, 0, 9)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6, -4)
+polygon = PackedVector2Array(-2, 8, 14, 8, 14, 11, -2, 11)

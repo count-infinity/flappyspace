@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4ip0p17vrmkc"]
+
+[ext_resource type="Script" path="res://explosion.gd" id="1_ktjfu"]
+[ext_resource type="AudioStream" uid="uid://cu20lg8iqjeky" path="res://zapsplat_cartoon_anime_hit_burst_mini_explosion_71425.mp3" id="2_35rb3"]
+
+[sub_resource type="Curve" id="Curve_pcxf5"]
+_data = [Vector2(0, 0.726316), 0.0, 1.4, 0, 0, Vector2(0.582418, 0.115789), 0.0, 0.0, 0, 0, Vector2(1, 0.105263), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_4mq7j"]
+offsets = PackedFloat32Array(0.00662252, 1)
+colors = PackedColorArray(0.54902, 0.0470588, 0.0470588, 1, 1, 0.87451, 0.2, 1)
+
+[node name="explosion" type="Node2D"]
+script = ExtResource("1_ktjfu")
+
+[node name="particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.33
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.15
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_pcxf5")
+color_ramp = SubResource("Gradient_4mq7j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_35rb3")
